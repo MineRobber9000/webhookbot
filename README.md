@@ -1,0 +1,3 @@
+# webhookbot
+
+GitHub webhooks -> IRC

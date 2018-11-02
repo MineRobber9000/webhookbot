@@ -1,0 +1,19 @@
+{
+  "name": "webhookbot",
+  "version": "0.0.1",
+  "description": "GitHub webhooks -> IRC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MineRobber9000/webhookbot.git"
+  },
+  "author": "Robert Miles <khuxkm@ttm.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MineRobber9000/webhookbot/issues"
+  },
+  "homepage": "https://github.com/MineRobber9000/webhookbot#readme"
+}
