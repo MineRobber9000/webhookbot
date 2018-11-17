@@ -1,4 +1,4 @@
 {
-	"type": "gitea",
+	"type": "github",
 	"secret": "asdf"
 }
