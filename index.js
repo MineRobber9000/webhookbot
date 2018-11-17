@@ -5,20 +5,7 @@ const irc = require("irc-upd");
 util.use(config);
 var bot = new irc.Client("tilde.chat","giteabot",{channels:["#6502gen"],port:6697,secure:true})
 var app = require("express")();
-app.use(require("express").json());
-app.use(function(req, res, next) {
-	console.log("req");
-	var data='';
-	req.setEncoding('utf8');
-	req.on('data', function(chunk) {
-		data += chunk;
-	});
-
-	req.on('end', function() {
-		req.rawData = data;
-	});
-	next();
-});
+app.use(require("body-parser").json({verify:function(req,res,buf,encoding){ req.rawData = buf.toString(encoding); }}));
 app.post("/webhook/",function(req,res) {
 	if (util.matchSecret(req,config.secret)) {
 		util.on(req.get("X-GitHub-Event"),req.body,bot);
