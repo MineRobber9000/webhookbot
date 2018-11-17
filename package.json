@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MineRobber9000/webhookbot#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "irc-upd": "^0.10.0"
   }
