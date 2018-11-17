@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/MineRobber9000/webhookbot/issues"
   },
-  "homepage": "https://github.com/MineRobber9000/webhookbot#readme"
+  "homepage": "https://github.com/MineRobber9000/webhookbot#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "irc-upd": "^0.10.0"
+  }
 }
