@@ -1,3 +1,4 @@
+const log = require("./log").log;
 const crypto = require("crypto");
 var configured = false;
 var config = {};
@@ -26,12 +27,21 @@ exports.matchSecret = function(req,secret) {
 exports.on = function(event,body,bot) {
 	if (!configured) return false;
 	if (handlers[config.type] === undefined) {
-		console.log("error: No handlers implemented for " + config.type);
+		log("error: No handlers implemented for " + config.type);
 		return false;
 	}
 	if (handlers[config.type][event] === undefined) {
-		console.log("error: No " + event + " handler implemented for " + config.type);
+		log("error: No " + event + " handler implemented for " + config.type);
 		return false;
 	}
-	handlers[config.type][event](bot,body);
+	var channel = null;
+	for (var pchannel in config.channels) {
+		if (body.repository.full_name.match(config.channels[pchannel])!==null) {
+			channel = pchannel;
+		}
+	}
+	if (channel===null) {
+		log("error: No channel defined for repo "+body.full_name);
+	}
+	handlers[config.type][event](channel,bot,body);
 }
