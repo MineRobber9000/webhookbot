@@ -11,9 +11,8 @@ app.use(require("body-parser").json({verify:function(req,res,buf,encoding){ req.
 app.post("/webhook/",function(req,res) {
 	if (util.matchSecret(req,config.secret)) {
 		util.on(req.get("X-GitHub-Event"),req.body,bot);
-		res.status(200).end();
 	}
-	res.status(403).end();
+	res.status(200).end();
 });
 app.listen(8001,function() {console.log("running on port 8001");});
 bot.addListener('error', function(message) {
