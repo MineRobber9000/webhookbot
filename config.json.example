@@ -1,4 +1,11 @@
 {
 	"type": "github",
-	"secret": "asdf"
+	"secret": "asdf",
+	"server": "irc.efnet.org",
+	"channel": "#bottest",
+	"nick": "webhookbot",
+	"opts": {
+		"port": 6697,
+		"secure": true
+	}
 }
