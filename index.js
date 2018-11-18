@@ -4,6 +4,7 @@ var config = JSON.parse(fs.readFileSync("config.json"));
 log("Config parsed!");
 const util = require("./util");
 const irc = require("irc-upd");
+config.colors = irc.colors; // why require handlers to require("irc-upd") if we can just pass them the colors through the config?
 util.use(config);
 var opts = {channels:[config.channel]};
 opts = Object.assign(opts,config.opts);
