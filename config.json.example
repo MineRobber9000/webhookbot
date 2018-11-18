@@ -2,7 +2,9 @@
 	"type": "github",
 	"secret": "asdf",
 	"server": "irc.efnet.org",
-	"channel": "#bottest",
+	"channels": {
+		"#bottest": "test/nope"
+	}
 	"nick": "webhookbot",
 	"opts": {
 		"port": 6697,
