@@ -1,7 +1,7 @@
 var log = require("./log").log;
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync("config.json"));
-log(config.toString());
+log("Config parsed!");
 const util = require("./util");
 const irc = require("irc-upd");
 util.use(config);
