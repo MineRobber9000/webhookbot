@@ -5,7 +5,7 @@ function onCommand(nick,channel,cmd,args) {
 		return;
 	}
 	if (config.channels[channel]) {
-		this.say(channel,nick+": This channel is watching "+config.channels[channel]+".");
+		this.say(channel,nick+": This channel is watching "+config.channels[channel].replace(/[(.)]/g,"")+".");
 	}
 }
 
