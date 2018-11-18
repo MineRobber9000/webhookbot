@@ -2,10 +2,12 @@ const crypto = require("crypto");
 var configured = false;
 var config = {};
 var handlers = {};
+handlers.gitea = require("./handlers/gitea");
 
 exports.use = function(conf) {
 	configured = true;
 	config = conf;
+	handlers.gitea.use(conf);
 }
 
 exports.matchSecret = function(req,secret) {
