@@ -18,7 +18,23 @@ app.post("/webhook/",function(req,res) {
 	}
 	res.status(200).end();
 });
-app.listen(8001,function() {log("HTTP server running on port 8001");});
 bot.addListener('error', function(message) {
 	log('error: ', message);
 });
+
+bot.on("message",function(nick,to,text,message) {
+	if (!text.startsWith(config.prefix)) {
+		return;
+	}
+	var args = text.slice(config.prefix.length).trim().split(/ +/g);
+	var cmd = args.shift().toLowerCase()
+	bot.emit("command",nick,to,cmd,args);
+});
+
+for (var command in config.commands) {
+	command = require("./commands/"+config.commands[command]);
+	command.use(config);
+	command.register(bot);
+}
+
+app.listen(8001,function() {log("HTTP server running on port 8001");});
