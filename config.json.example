@@ -5,6 +5,8 @@
 	"channels": {
 		"#bottest": "test/nope"
 	},
+	"commands": ["watching"],
+	"prefix": "!",
 	"nick": "webhookbot",
 	"opts": {
 		"port": 6697,
