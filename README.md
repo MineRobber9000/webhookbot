@@ -9,4 +9,6 @@ GitHub/Gogs/Gitea webhooks -> IRC
     - [ ] Gogs
     - [ ] Gitea
  - [ ] Add color as we go
- - [ ] Allow bot to check multiple channels (one repo per channel?)
+ - [x] Allow bot to check multiple repos
+ - [ ] Bot-side commands
+     - [ ] "What repos are being watched in this channel?"
