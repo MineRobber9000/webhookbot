@@ -4,7 +4,7 @@
 	"server": "irc.efnet.org",
 	"channels": {
 		"#bottest": "test/nope"
-	}
+	},
 	"nick": "webhookbot",
 	"opts": {
 		"port": 6697,
