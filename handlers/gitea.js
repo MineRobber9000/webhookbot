@@ -11,5 +11,8 @@ function getPrefix(body) {
 }
 
 exports.push = function(channel,bot,body) {
-	bot.say(channel,getPrefix(body)+colors.wrap("dark_blue",body.pusher.full_name)+" pushed "+colors.codes.gray+body.commits.length+" commit"+(body.commits.length!=1 ? "s" : "")+colors.codes.reset+(body.ref.startsWith("refs/heads/") ? " to "+colors.wrap("magenta",body.ref.replace("refs/heads/","")) : "")+". ("+(body.commits.map(x => x.message.split('\n')[0]).join(", "))+")");
+	var http = require("request")
+	http.post("https://ttm.sh", {shorten: body.compare_url}, function (err, response, shorturl) {
+		bot.say(channel,getPrefix(body)+colors.wrap("dark_blue",body.pusher.full_name)+" pushed "+colors.codes.gray+body.commits.length+" commit"+(body.commits.length!=1 ? "s" : "")+colors.codes.reset+(body.ref.startsWith("refs/heads/") ? " to "+colors.wrap("magenta",body.ref.replace("refs/heads/","")) : "")+". ("+(body.commits.map(x => x.message.split('\n')[0]).join(", "))+") - " + colors.wrap("blue", shorturl));
+	})
 }
