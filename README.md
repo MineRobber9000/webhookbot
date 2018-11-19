@@ -1,3 +1,5 @@
+# THIS REPO HAS MOVED TO [TILDEGIT](https://tildegit.org/khuxkm/webhookbot)!
+
 # webhookbot
 
 GitHub/Gogs/Gitea webhooks -> IRC
